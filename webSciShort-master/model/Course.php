@@ -18,7 +18,7 @@ class Course{
             return false;
         }
     }
-    
+
 
      public function getCourseDetail($cs_id)
     {
@@ -31,6 +31,8 @@ class Course{
             return false;
         }
     }
+
+
 
     // public function getCoursePro($pro_id)
     // {
@@ -114,7 +116,7 @@ class Course{
         }else {
             return false;
         }
-        mysqli_close($this->conn);
+        mysqli_close($this->ConDB);
     }
 
 

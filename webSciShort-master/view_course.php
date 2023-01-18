@@ -34,9 +34,9 @@
                     <li class="nav-item"><a class="nav-link" href="./view/forn_add_course.php"
                             target="_blank">เพิ่มคอร์ส</a></li>
                 </ul>
-                <form class="d-flex" method="post">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                <form class="d-flex" action="search.php" method="get">      
+                    <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="keywords" autocomplete="off">
+                    <button class="btn btn-outline-dark" type="submit" value="Search">Search</button> 
                 </form>
             </div>
         </div>
