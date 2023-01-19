@@ -31,6 +31,28 @@ class Course{
             return false;
         }
     }
+     public function getCourseYear($cs_year)
+    {
+        $sql = "SELECT * FROM sci_cs where cs_year = ".$cs_year;
+        $query = $this->ConDB->prepare($sql);
+        if( $query->execute()){
+            $result = $query->fetch(PDO::FETCH_ASSOC);
+            return $result;
+        }else {
+            return false;
+        }
+    }
+     public function getCourseAllYear()
+    {
+        $sql = "SELECT * FROM sci_cs where cs_year ";
+        $query = $this->ConDB->prepare($sql);
+        if( $query->execute()){
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }else {
+            return false;
+        }
+    }
 
 
 
@@ -61,9 +83,9 @@ class Course{
     public function addCourse($data_course)
     {
         $sql = "INSERT INTO `sci_cs` (`cs_id`, `cs_name`, `cs_img`, `cs_date`, `cs_wallet`, `cs_range_date`, `cs_fcourse`, 
-        `cs_time`, `cs_location`, `cs_group`, `cs_detail`, `cs_perform`, `cs_reward`, `cs_schedule`, `cs_phone`)";
+        `cs_time`, `cs_location`, `cs_group`, `cs_detail`, `cs_perform`, `cs_reward`, `cs_schedule`, `cs_phone`,`cs_year`)";
         $sql .= " VALUES ('', :cs_name, :cs_img, :cs_date, :cs_wallet , :cs_range_date , :cs_fcourse
-        , :cs_time , :cs_location, :cs_group, :cs_detail, :cs_perform , :cs_reward , :cs_schedule, :cs_phone);";
+        , :cs_time , :cs_location, :cs_group, :cs_detail, :cs_perform , :cs_reward , :cs_schedule, :cs_phone,:cs_year);";
         $query = $this->ConDB->prepare($sql);
         if( $query->execute($data_course)){
             return true;
