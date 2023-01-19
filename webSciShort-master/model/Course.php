@@ -83,9 +83,9 @@ class Course{
     public function addCourse($data_course)
     {
         $sql = "INSERT INTO `sci_cs` (`cs_id`, `cs_name`, `cs_img`, `cs_date`, `cs_wallet`, `cs_range_date`, `cs_fcourse`, 
-        `cs_time`, `cs_location`, `cs_group`, `cs_detail`, `cs_perform`, `cs_reward`, `cs_schedule`, `cs_phone`,`cs_year`)";
+        `cs_time`, `cs_location`, `cs_group`, `cs_detail`, `cs_perform`, `cs_reward`, `cs_schedule`, `cs_phone`)";
         $sql .= " VALUES ('', :cs_name, :cs_img, :cs_date, :cs_wallet , :cs_range_date , :cs_fcourse
-        , :cs_time , :cs_location, :cs_group, :cs_detail, :cs_perform , :cs_reward , :cs_schedule, :cs_phone,:cs_year);";
+        , :cs_time , :cs_location, :cs_group, :cs_detail, :cs_perform , :cs_reward , :cs_schedule, :cs_phone);";
         $query = $this->ConDB->prepare($sql);
         if( $query->execute($data_course)){
             return true;
@@ -93,6 +93,19 @@ class Course{
             return false;
         }
     }
+    // public function addCourse($data_course)
+    // {
+    //     $sql = "INSERT INTO `sci_cs` (`cs_id`, `cs_name`, `cs_img`, `cs_date`, `cs_wallet`, `cs_range_date`, `cs_fcourse`, 
+    //     `cs_time`, `cs_location`, `cs_group`, `cs_detail`, `cs_perform`, `cs_reward`, `cs_schedule`, `cs_phone`,`cs_year`)";
+    //     $sql .= " VALUES ('', :cs_name, :cs_img, :cs_date, :cs_wallet , :cs_range_date , :cs_fcourse
+    //     , :cs_time , :cs_location, :cs_group, :cs_detail, :cs_perform , :cs_reward , :cs_schedule, :cs_phone,:cs_year);";
+    //     $query = $this->ConDB->prepare($sql);
+    //     if( $query->execute($data_course)){
+    //         return true;
+    //     }else {
+    //         return false;
+    //     }
+    // }
 
     public function delCourse($cs_id)
     {

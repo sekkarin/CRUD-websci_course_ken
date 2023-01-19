@@ -189,7 +189,7 @@ include_once("../model/Course.php");
             </div>
           </div>
           <select id="cs_year" name="cs_year">
-            <?php
+            <!-- <?php
             $obj_name = new Course();
             $rs2 = $obj_name->getCourseAllYear();
             //เรียกใช้ที่
@@ -198,7 +198,7 @@ include_once("../model/Course.php");
               <option value="<?= $result2['cs_year'] ?>">
                 <?= $result2['cs_year'] ?>
               </option>
-            <?php } ?>
+            <?php } ?> -->
           </select>
           <div class="form-group row">
             <label for="inputPassword" class="col-sm-2 col-form-label"></label>
