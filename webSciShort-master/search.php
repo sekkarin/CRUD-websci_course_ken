@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,6 +16,7 @@
     <link href="css/css.css" rel="stylesheet" />
     <script src="https://kit.fontawesome.com/c150442d6f.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-warning">
@@ -32,9 +34,11 @@
                     <li class="nav-item"><a class="nav-link" href="./view/forn_add_course.php"
                             target="_blank">เพิ่มคอร์ส</a></li>
                 </ul>
-                <form class="d-flex" action="search.php" method="get">      
-                    <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" name="keywords" autocomplete="off">
-                    <button class="btn btn-outline-dark" type="submit" value="Search">Search</button> 
+                <form class="d-flex" action="search.php" method="get">
+                    <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search"
+                        name="keywords" autocomplete="off">
+                    <button class="btn btn-outline-dark" type="submit" value="Search">Search</button>
+                    
                 </form>
             </div>
         </div>
@@ -52,63 +56,64 @@
     <section class="py-2">
         <div class="container-fluid px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            
-<?php
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "sci_course";
+                <?php
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-    }
+                $servername = "localhost";
+                $username = "root";
+                $password = "";
+                $dbname = "sci_course";
 
-    if (isset($_GET['keywords']))
-    {
-        $keywords = $conn->escape_string($_GET['keywords']);
-        $query =  $conn->query("
+                // Create connection
+                $conn = new mysqli($servername, $username, $password, $dbname);
+                // Check connection
+                if ($conn->connect_error) {
+                    die("Connection failed: " . $conn->connect_error);
+                }
+
+                if (isset($_GET['keywords'])) {
+                    $keywords = $conn->escape_string($_GET['keywords']);
+                    $query = $conn->query("
             SELECT *
             FROM sci_cs 
             WHERE (cs_name LIKE '%{$keywords}%') OR (cs_year LIKE '%{$keywords}')
         ");
-?>
+                    ?>
 
-    <?php
-        if($query->num_rows){
-            while($r = $query->fetch_object()){
-    ?>
-            <!-- Course section -->
-            <div class="col mb-5">
-                <div class="card h-150">
-                    <a href="controller/con_view_course.php?cs_id=<?=$r->cs_id;?>" class="card-link">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="<?=$r->cs_img;?>" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-left">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder course-name"><?=$r->cs_name;?></h5>
-                                <!-- course tag line-->
-                                <div class="course-note"><i class="far fa-calendar-alt"></i> วันที่อบรม <?=$r->cs_date;?></div>
-                                <!-- <div class="course-note"><i class="fab fa-internet-explorer"></i> -</div> -->
-                                <div class="course-note"><i class="far fa-building"></i> มหาวิทยาลัยราชภัฏนครปฐม</div>
-                                <!-- <div class="course-note"><i class="fas fa-graduation-cap"></i> - </div> -->
-                                <div class="course-note"><i class="fas fa-wallet"></i> <?=$r->cs_wallet;?></div>
+                    <?php
+                    if ($query->num_rows) {
+                        while ($r = $query->fetch_object()) {
+                            ?>
+                            <!-- Course section -->
+                            <div class="col mb-5">
+                                <div class="card h-150">
+                                    <a href="controller/con_view_course.php?cs_id=<?= $r->cs_id; ?>" class="card-link">
+                                        <!-- Product image-->
+                                        <img class="card-img-top" src="<?= $r->cs_img; ?>" alt="..." />
+                                        <!-- Product details-->
+                                        <div class="card-body p-4">
+                                            <div class="text-left">
+                                                <!-- Product name-->
+                                                <h5 class="fw-bolder course-name"><?= $r->cs_name; ?></h5>
+                                                <!-- course tag line-->
+                                                <div class="course-note"><i class="far fa-calendar-alt"></i> วันที่อบรม
+                                                    <?= $r->cs_date; ?></div>
+                                                <!-- <div class="course-note"><i class="fab fa-internet-explorer"></i> -</div> -->
+                                                <div class="course-note"><i class="far fa-building"></i> มหาวิทยาลัยราชภัฏนครปฐม
+                                                </div>
+                                                <!-- <div class="course-note"><i class="fas fa-graduation-cap"></i> - </div> -->
+                                                <div class="course-note"><i class="fas fa-wallet"></i> <?= $r->cs_wallet; ?></div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <!-- End Course section -->
-        <?php
-            }
-        }
-    }
-?>
+                            <!-- End Course section -->
+                            <?php
+                        }
+                    }
+                }
+                ?>
             </div>
         </div>
     </section>
@@ -130,4 +135,5 @@
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
 </body>
+
 </html>

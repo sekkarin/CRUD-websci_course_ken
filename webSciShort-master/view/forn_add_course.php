@@ -172,7 +172,21 @@ include_once("../model/Course.php");
               <input type="text" name="cs_wallet" class="form-control" id="cs_wallet" placeholder="ราคาคอร์ส">
             </div>
           </div>
-
+          <div class="form-group row">
+            <!-- <label for="staticEmail" class="col-sm-2 col-form-label">ปี </label> -->
+            <select class="form-select" aria-label="year" id="cs_year" name="cs_year">
+              <?php
+              $obj_name = new Course();
+              $rs2 = $obj_name->getCourseAllYear();
+              //เรียกใช้ที่
+              foreach ($rs2 as $result2) {
+                ?>
+                <option value="<?= $result2['cs_year'] ?>">
+                  <?= $result2['cs_year'] ?>
+                </option>
+              <?php } ?>
+            </select>
+          </div>
           <div class="form-group row">
             <label for="staticEmail" class="col-sm-2 col-form-label">วันที่อบรม</label>
             <div class="col-sm-10">
@@ -186,18 +200,6 @@ include_once("../model/Course.php");
               <input type="text" name="cs_phone" class="form-control" id="cs_phone" placeholder="เบอร์ติดต่อ">
             </div>
           </div>
-          <select id="cs_year" name="cs_year">
-            <?php
-            $obj_name = new Course();
-            $rs2 = $obj_name->getCourseAllYear();
-            //เรียกใช้ที่
-            foreach ($rs2 as $result2) {
-              ?>
-                <option value="<?= $result2['cs_year'] ?>">
-                  <?= $result2['cs_year'] ?>
-                </option>
-            <?php } ?>
-          </select>
           <div class="form-group row">
             <label for="inputPassword" class="col-sm-2 col-form-label"></label>
             <div class="col-sm-10">

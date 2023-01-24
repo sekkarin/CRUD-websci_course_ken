@@ -86,7 +86,7 @@
     $cs_reward=$_POST["cs_reward"];
     $cs_schedule=$_POST["cs_schedule"];
     $cs_phone=$_POST["cs_phone"];
-    // $cs_year=$_POST["cs_year"];
+    $cs_year=$_POST["cs_year"];
 
     $course=array();
     $course["cs_img"]=$cs_img;
@@ -103,7 +103,7 @@
     $course["cs_reward"]=$cs_reward;
     $course["cs_schedule"]=$cs_schedule;
     $course["cs_phone"]=$cs_phone;
-    // $course["cs_year"]=$cs_year;
+    $course["cs_year"]=$cs_year;
     
     include_once "../model/ConDB.php";
     include_once "../model/Course.php";
