@@ -73,7 +73,7 @@
         $query =  $conn->query("
             SELECT *
             FROM sci_cs 
-            WHERE cs_name LIKE '%{$keywords}%'
+            WHERE (cs_name LIKE '%{$keywords}%') OR (cs_year LIKE '%{$keywords}')
         ");
 ?>
 
