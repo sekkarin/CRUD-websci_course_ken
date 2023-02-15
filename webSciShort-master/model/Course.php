@@ -1,4 +1,5 @@
 <?php
+
 class Course{
     private $ConDB;
     public function __construct(){
@@ -156,4 +157,5 @@ class Course{
 
 
 }
+
 ?>

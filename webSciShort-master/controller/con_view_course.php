@@ -199,7 +199,7 @@
 
           </div>
           <div class="my-3 card-rela">
-            <a href="https://forms.gle/SC6zWtHG8bFuE2Vx5" class="btn btn-success">ลงทะเบียน</a>
+            <a href="../view/view_registor_course.php" class="btn btn-success">ลงทะเบียน</a>
             <a href="#list-item-10" class="btn btn-primary">สอบถามเพิ่มเติม</a>
             <a class="btn btn-outline-warning" href="../view/form_edit_course.php?cs_id=<?=$rs2['cs_id']?>">EDIT</a>
             <a class="btn btn-outline-danger" href="con_del_course.php?cs_id=<?=$rs2['cs_id']?>" onclick="return confirm('คุณต้องการจะลบข้อมูลชุดนี้หรือไม่? แน่ใจนะ!!')">DELETE</a>
