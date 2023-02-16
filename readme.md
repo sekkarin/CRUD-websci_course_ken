@@ -1,4 +1,59 @@
 # เอกสาร
+## สร้าง class จัดการเกี่ยวกับ Image และ การใช้งาน Json
+### browser
+image.png
+#### code class ImageManager
+class ImageManager
+{
+    <!-- สร้าง Properties เก็บข้อมูล url รูป -->
+    public $images = [];
+    <!-- สร้าง Method จัดการรูป-->
+
+    public function AddImage(string $image): bool
+    {
+        array_push($this->images, $image);
+        // $this->images[] = $image;
+        return true;
+    }
+    public function RemoveImage(string $imageID): bool
+    {
+        unset($images[$imageID]);
+        return true;
+    }
+    public function GetImage(int $imageID): string|null
+    {
+        return $this->images[$imageID];
+    }
+    public function UpdateImage(string $imageID): bool
+    {
+        return true;
+    }
+    public function GetImageAll(): array
+    {
+        return $this->images;
+    }
+    public function GetImagejson(): string|bool{
+        return json_encode($this->images);
+    }
+}
+#### code view image
+<?php
+include_once('./ImageMagage.php');
+
+
+$objImage = new ImageManager();
+$objImage->AddImage('https://www.akc.org/wp-content/themes/akc/component-library/assets/img/welcome.jpg');
+$objImage->AddImage('http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcRCFzg30JogIj40hQFI4DrVBMpfe83eLstaRvslhmCDXlgwTOgeT9ZGeSt0aTQSqj_M');
+$objImage->AddImage('https://www.akc.org/wp-content/themes/akc/component-library/assets/img/welcome.jpg');
+// $objImage->GetImage('0');
+$imageAll = $objImage->GetImagejson();
+$myArray = json_decode($imageAll);
+
+foreach ($myArray as $value) {
+    ?>
+    <img src="<?= $value ?>" height="150" width="150">
+<?php } ?>
+
 ## ระบบลงทะเบียนคอร์ส
 ![image](https://user-images.githubusercontent.com/73205970/218973550-c206630b-99d2-427e-83f5-11e01933a3aa.png)
 ### code
